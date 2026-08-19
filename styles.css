@@ -1,0 +1,111 @@
+:root {
+  color-scheme: dark;
+  background: #000;
+  font-family: ui-monospace, "SFMono-Regular", "Cascadia Code", "Roboto Mono", monospace;
+  font-synthesis: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  min-height: 100%;
+  margin: 0;
+  background: #000;
+}
+
+body {
+  min-width: 280px;
+  overflow: hidden;
+  color: #e8ece8;
+  user-select: none;
+}
+
+.stage {
+  display: grid;
+  min-height: 100vh;
+  min-height: 100svh;
+  padding: clamp(1rem, 4vw, 3rem);
+  place-items: center;
+}
+
+.clearing {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  flex-direction: column;
+  transform: translateY(-1vh);
+}
+
+.forest-shell {
+  width: min(94vw, 100rem);
+  max-width: 100%;
+}
+
+.forest-wordmark {
+  display: block;
+  width: 100%;
+  height: clamp(7rem, 18vw, 17rem);
+  animation: forest-arrive 1.5s cubic-bezier(0.2, 0.75, 0.25, 1) both;
+  cursor: default;
+}
+
+.wordmark-fallback {
+  padding: 3rem 0;
+  color: #cbd3cb;
+  font-size: clamp(1rem, 4vw, 2rem);
+  letter-spacing: 0.08em;
+  text-align: center;
+}
+
+.status {
+  margin: clamp(0.4rem, 1.5vh, 0.9rem) 0 0;
+  color: #787f79;
+  font-size: clamp(0.65rem, 0.8vw, 0.76rem);
+  letter-spacing: 0.16em;
+  line-height: 1;
+  text-transform: lowercase;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+@keyframes forest-arrive {
+  from {
+    opacity: 0;
+    transform: translateY(0.8rem) scale(0.985);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@media (max-width: 420px) {
+  .stage {
+    padding-right: 0.75rem;
+    padding-left: 0.75rem;
+  }
+
+  .status {
+    letter-spacing: 0.14em;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .forest-wordmark {
+    animation: none;
+  }
+}
